@@ -15,7 +15,7 @@ settings:
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
-- id: backend-server-state
+  - id: backend-server-state
     name: frontend servers
     url: 'https://status-page.eidam.dev'
     method: GET
