@@ -1,5 +1,5 @@
 settings:
-  page-title: 'Status Page'
+  pageTitle: 'Status Page'
   title: '- Status Page'
   url: 'https://status-page.eidam.dev' # used for Slack messages
   logo: logo.png # image in ./public/ folder
