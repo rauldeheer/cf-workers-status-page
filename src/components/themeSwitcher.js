@@ -38,7 +38,7 @@ export default function ThemeSwitcher() {
   const [darkmode, setDark] = useState(localStorage.getItem('theme') === 'dark')
 
   useEffect(() => {
-    setTheme(darkmode ? 'dark' : 'light')
+    setTheme('light')
   }, [darkmode])
 
   const changeTheme = () => {
