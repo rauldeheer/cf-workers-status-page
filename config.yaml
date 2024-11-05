@@ -4,7 +4,7 @@ settings:
   url: 'https://status.booqi.me'
   logo: logo.png
   daysInHistogram: 60
-  collectResponseTimes: true
+  collectResponseTimes: false
 
   allmonitorsOperational: 'All Systems Operational'
   notAllmonitorsOperational: 'Outage In Some Systems'
@@ -23,6 +23,7 @@ monitors:
     method: GET
     expectStatus: 200
     linkable: false
+    followRedirect: true
 
   - id: frontend-server-state
     name: Shop servers
@@ -31,6 +32,7 @@ monitors:
     method: GET
     expectStatus: 200
     linkable: false
+    followRedirect: true
 
   - id: api-systems
     name: API servers
@@ -39,6 +41,7 @@ monitors:
     method: GET
     expectStatus: 200
     linkable: false
+    followRedirect: true
 
   - id: storage-systems
     name: Storage servers
@@ -47,11 +50,13 @@ monitors:
     method: GET
     expectStatus: 403
     linkable: false
+    followRedirect: true
 
   - id: anti-ddos-systems
     name: DDoS Mitigation systems
     description: 'This status reflects the current state of our DDoS mitigation systems and firewalls.'
-    url: 'https://cloudflare.com'
+    url: 'https://www.cloudflarestatus.com/api/v2/status.json'
     method: GET
     expectStatus: 200
     linkable: false
+    followRedirect: true
