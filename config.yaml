@@ -1,10 +1,10 @@
 settings:
   pageTitle: 'Status Page'
   title: '- Status Page'
-  url: 'https://status-page.eidam.dev' # used for Slack messages
-  logo: logo.png # image in ./public/ folder
-  daysInHistogram: 90 # number of days you want to display in histogram
-  collectResponseTimes: true # collects avg response times from CRON locations
+  url: 'https://status.booqi.me'
+  logo: logo.png
+  daysInHistogram: 60
+  collectResponseTimes: true
 
   allmonitorsOperational: 'All Systems Operational'
   notAllmonitorsOperational: 'Not All Systems Operational'
@@ -13,49 +13,45 @@ settings:
   monitorLabelNoData: 'No data'
   dayInHistogramNoData: 'No data'
   dayInHistogramOperational: 'All good'
-  dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
+  dayInHistogramNotOperational: ' incident(s)'
 
 monitors:
   - id: backend-server-state
-    name: Backend servers
-    url: 'https://status-page.eidam.dev'
+    name: Backoffice servers
+    description: 'This status reflects the current state of the servers handling requests from the backoffice.'
+    url: 'https://museum.booqi.me/admin'
     method: GET
     expectStatus: 200
     linkable: false
 
   - id: frontend-server-state
-    name: Frontend servers
-    url: 'https://www.cloudflarestatus.com/'
+    name: Shop servers
+    description: 'This status reflects the current state of the servers handling requests from clients looking to purchase products.'
+    url: 'https://museum.booqi.me'
     method: GET
     expectStatus: 200
     linkable: false
 
   - id: api-systems
-    name: API systems
-    description: 'API description' # default=empty
-    url: 'https://workers.cloudflare.com/' # URL to fetch
-    method: GET # default=GET
-    expectStatus: 200 # operational status, default=200
-    linkable: false # allows the title to be a link, default=true
-
-  - id: storage-systems
-    name: Storage systems
-    description: 'Storage description'
-    url: 'https://www.cloudflare.com'
-    method: GET
-    expectStatus: 200
-    linkable: false # allows the title to be a link, default=true
-
-  - id: anti-ddos-systems
-    name: Anti DDoS systems
-    url: 'https://blog.cloudflare.com/'
+    name: API servers
+    description: 'This status reflects the current state of the servers handling requests from the API and Webhooks.'
+    url: 'https://museum.booqi.me/api/client'
     method: GET
     expectStatus: 200
     linkable: false
 
-  - id: kiosk-systems
-    name: Kiosk systems
-    url: 'https://www.cloudflare.com/dns/'
+  - id: storage-systems
+    name: Storage servers
+    description: 'This status provides an overview of all our storage systems, including images and reports.'
+    url: 'https://cdn.booqi.app'
+    method: GET
+    expectStatus: 403
+    linkable: false
+
+  - id: anti-ddos-systems
+    name: DDoS Mitigation systems
+    description: 'This status reflects the current state of our DDoS mitigation systems and firewalls.'
+    url: 'https://cloudflare.com'
     method: GET
     expectStatus: 200
     linkable: false
